@@ -47,11 +47,6 @@ const sharePost = async (form) => {
   }
 };
 
-export const metadata = {
-  title: "Genetrate Image",
-  description: "Genetrate Image",
-};
-
 const Page = () => {
   const [form, setForm] = useState({
     name: "",
