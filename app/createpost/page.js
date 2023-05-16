@@ -30,7 +30,7 @@ const imageGenaration = async (form) => {
 
 const sharePost = async (form) => {
   try {
-    const response = await fetch("http://localhost:8000/api/v1/post", {
+    const response = await fetch(`${process.env.API_URL}/post`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

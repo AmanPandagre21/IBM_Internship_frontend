@@ -5,7 +5,7 @@ const nextConfig = {
     appDir: true,
   },
   env: {
-    API_URL: "http://localhost:8000/api/v1",
+    API_URL: "https://ibminternshipbackend-production.up.railway.app/api/v1",
   },
   images: {
     remotePatterns: [
