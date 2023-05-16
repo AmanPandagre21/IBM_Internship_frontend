@@ -1,8 +1,31 @@
-import Image from "next/image";
-import Card from "./Card";
+"use client";
 
-const AIimageSection = async ({ data }) => {
-  console.log(data[4].photo);
+import { useEffect, useState } from "react";
+
+const AIimageSection = () => {
+  const [imgdata, setImgData] = useState([]);
+
+  const getImages = async () => {
+    try {
+      const response = await fetch(`${process.env.API_URL}/post`, {
+        cache: "no-store",
+        next: { revalidate: 60 },
+      });
+
+      if (!response.ok) throw new Error("Failed to fetch data");
+
+      const data = await response.json();
+      const trimData = data.posts.slice(0, 7);
+
+      setImgData(trimData);
+    } catch (error) {
+      throw new Error("Failed to fetch data");
+    }
+  };
+
+  useEffect(() => {
+    getImages();
+  }, []);
 
   return (
     <>
@@ -21,7 +44,7 @@ const AIimageSection = async ({ data }) => {
           <div className="flex flex-col lg:flex-row space-x-2 space-y-3 md:space-x-6 w-full items-center justify-center">
             <div className="lg:w-40 w-64 h-40 overflow-hidden rounded-xl bshadow">
               <img
-                src={data[0] && data[0].photo}
+                src={imgdata[0] && imgdata[0].photo}
                 alt="ai_img"
                 className="lg:w-40 w-64 h-40"
               />
@@ -29,14 +52,14 @@ const AIimageSection = async ({ data }) => {
             <div className="flex flex-row lg:flex-col space-x-3 space-y-6 items-center justify-center">
               <div className="w-32 lg:w-40 h-32  overflow-hidden rounded-xl bshadow">
                 <img
-                  src={data[3] && data[3].photo}
+                  src={imgdata[3] && imgdata[3].photo}
                   alt="ai_img"
                   className="w-32 lg:w-40 h-32"
                 />
               </div>
               <div className="w-32 lg:w-40 h-48  overflow-hidden rounded-xl bshadow">
                 <img
-                  src={data[2] && data[2].photo}
+                  src={imgdata[2] && imgdata[2].photo}
                   alt="ai_img"
                   className="w-32 lg:w-40 h-48"
                 />
@@ -44,7 +67,7 @@ const AIimageSection = async ({ data }) => {
             </div>
             <div className="lg:w-68 w-64 h-96  overflow-hidden rounded-xl bshadow">
               <img
-                src={data[1] && data[1].photo}
+                src={imgdata[1] && imgdata[1].photo}
                 alt="ai_img"
                 className="lg:w-68 w-64 h-96"
               />
@@ -52,14 +75,14 @@ const AIimageSection = async ({ data }) => {
             <div className="flex flex-row lg:flex-col space-x-3 space-y-6 items-center justify-center ">
               <div className="w-32 lg:w-40 h-48  overflow-hidden rounded-xl bshadow">
                 <img
-                  src={data[4] && data[4].photo}
+                  src={imgdata[4] && imgdata[4].photo}
                   alt="ai_img"
                   className="w-32 lg:w-40 h-48"
                 />
               </div>
               <div className="w-32 lg:w-40 h-32  overflow-hidden rounded-xl bshadow">
                 <img
-                  src={data[5] && data[5].photo}
+                  src={imgdata[5] && imgdata[5].photo}
                   alt="ai_img"
                   className="w-32 lg:w-40 h-32 "
                 />
@@ -67,7 +90,7 @@ const AIimageSection = async ({ data }) => {
             </div>
             <div className="lg:w-40 w-64 h-40  overflow-hidden rounded-xl bshadow">
               <img
-                src={data[6] && data[6].photo}
+                src={imgdata[6] && imgdata[6].photo}
                 alt="ai_img"
                 className="lg:w-40 w-64 h-40"
               />

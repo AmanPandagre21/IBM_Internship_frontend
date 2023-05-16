@@ -3,25 +3,7 @@ import AIimageSection from "./component/AIimageSection";
 import Link from "next/link";
 import BotSection from "./component/BotSection";
 
-const getImages = async () => {
-  try {
-    const response = await fetch(`${process.env.API_URL}/post`, {
-      cache: "no-store",
-      next: { revalidate: 60 },
-    });
-
-    if (!response.ok) throw new Error("Failed to fetch data");
-
-    const data = await response.json();
-    const trimData = data.posts.slice(0, 7);
-    return trimData;
-  } catch (error) {
-    throw new Error("Failed to fetch data");
-  }
-};
-
-const page = async () => {
-  const imageData = await getImages();
+const page = () => {
   return (
     <>
       <section className="flex md:flex-row flex-col sm:px-14 p-6 mb-[4%] mx-auto">
@@ -60,7 +42,7 @@ const page = async () => {
       </section>
 
       <section className="flex flex-col sm:px-14 p-6 my-[4%]">
-        <AIimageSection data={imageData} />
+        <AIimageSection />
       </section>
 
       <section className="w-full h-auto sm:px-14 p-6 my-[4%] bg-[url('/moon.svg')] bg-no-repeat">

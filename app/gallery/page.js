@@ -1,4 +1,3 @@
-import React from "react";
 import Card from "../component/Card";
 
 export const metadata = {
@@ -22,7 +21,7 @@ const getData = async () => {
 };
 
 const page = async () => {
-  const data = await getData();
+  const aiPosts = await getData();
   return (
     <section>
       <div>
@@ -30,15 +29,15 @@ const page = async () => {
           Gallery
         </h1>
         <p className="mt-2 text-[#666e75] text-[14px] text-center max-w-7xl px-8">
-          Generate an imaginative image through{" "}
+          Generate an imaginative image through
           <span className="font-bold text-gradient">DALL-E AI</span> and share
           it with the community
         </p>
       </div>
 
       <div className="lg:w-[90%] w-[85%] grid lg:grid-cols-4 sm:grid-cols-3 xs:grid-cols-2 grid-cols-1 gap-4 my-8 mx-auto">
-        {data &&
-          data.posts.map((post) => {
+        {aiPosts &&
+          aiPosts.posts.map((post) => {
             return <Card key={post._id} post={post} />;
           })}
       </div>
