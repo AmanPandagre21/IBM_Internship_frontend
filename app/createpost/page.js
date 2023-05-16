@@ -8,7 +8,7 @@ import { useMutation } from "react-query";
 const imageGenaration = async (form) => {
   if (form.prompt) {
     try {
-      const response = await fetch("http://localhost:8000/api/v1/dalle", {
+      const response = await fetch(`${process.env.API_URL}/dalle`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

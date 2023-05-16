@@ -4,6 +4,9 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
+  env: {
+    API_URL: "http://localhost:8000/api/v1",
+  },
   images: {
     remotePatterns: [
       {
@@ -12,6 +15,6 @@ const nextConfig = {
       },
     ],
   },
-}
+};
 
 module.exports = nextConfig;

@@ -5,7 +5,7 @@ import BotSection from "./component/BotSection";
 
 const getImages = async () => {
   try {
-    const response = await fetch("http://localhost:8000/api/v1/post", {
+    const response = await fetch(`${process.env.API_URL}/post`, {
       cache: "no-store",
       next: { revalidate: 60 },
     });

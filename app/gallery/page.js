@@ -8,7 +8,7 @@ export const metadata = {
 
 const getData = async () => {
   try {
-    const response = await fetch("http://localhost:8000/api/v1/post", {
+    const response = await fetch(`${process.env.API_URL}/post`, {
       cache: "no-store",
     });
 

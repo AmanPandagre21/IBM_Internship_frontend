@@ -9,7 +9,7 @@ const page = () => {
   const [chat, setChat] = useState([]);
 
   const getBotResponse = async (chat) => {
-    const response = await fetch("http://localhost:8000/api/v1/chatbot", {
+    const response = await fetch(`${process.env.API_URL}/chatbot`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -40,7 +40,6 @@ const page = () => {
   const sendMessage = async (message) => {
     await Promise.resolve(setChat((prev) => [...prev, message]));
     mutation.mutate();
-    console.log(chat);
   };
 
   return (
