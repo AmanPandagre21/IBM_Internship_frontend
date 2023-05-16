@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply w-full bg-black;
+}
+
+.bshadow {
+  box-shadow: rgba(57, 221, 7, 0.438) 0px 3px 6px, rgb(7, 241, 7) 0px 3px 6px;
+}
+
+.text-gradient {
+  background: radial-gradient(
+    64.18% 64.18% at 71.16% 35.69%,
+    #def9fa 0.89%,
+    #bef3f5 17.23%,
+    #9dedf0 42.04%,
+    #7de7eb 55.12%,
+    #5ce1e6 71.54%,
+    #33bbcf 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.blue__gradient {
+  background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #214d76 100%);
+  filter: blur(123px);
+}
+
+.pink__gradient {
+  background: linear-gradient(90deg, #f4c4f3 0%, #fc67fa 100%);
+  filter: blur(900px);
+}
+
+.white__gradient {
+  background: rgba(255, 255, 255, 0.6);
+  filter: blur(750px);
+}
+
+.gradient-01 {
+  position: absolute;
+  width: 200px;
+  height: 238px;
+  top: 0;
+  background: #ca00ff;
+  filter: blur(175px);
+}
+
+.gradient-02 {
+  position: absolute;
+  width: 200px;
+  height: 238px;
+  right: 0px;
+  background: #7aebfb;
+  filter: blur(190px);
+}
