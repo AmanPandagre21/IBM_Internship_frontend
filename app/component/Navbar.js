@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const navlist = [
   { name: "Home", link: "/" },
-  { name: "Gallery", link: "/gallery" },
+  { name: "AI Gallery", link: "/aigallery" },
   { name: "Chatbot", link: "/chatbot" },
   { name: "Generate Image", link: "/createpost" },
 ];

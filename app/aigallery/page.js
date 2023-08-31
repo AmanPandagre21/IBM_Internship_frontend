@@ -1,17 +1,14 @@
 import Card from "../component/Card";
 
-// export const metadata = {
-//   title: "Gallery",
-//   description: "Gallery Page",
-// };
+export const metadata = {
+  title: "Gallery",
+  description: "Gallery Page",
+};
 
 const getData = async () => {
   try {
-    const response = await fetch(`${process.env.API_URL}/post`, {
-      cache: "no-store",
-      fallback: false,
-    });
-
+    const response = await fetch(`${process.env.API_URL}/post`);
+    console.log(`${process.env.API_URL}/post`);
     if (!response.ok) throw new Error("Failed to fetch data");
 
     const data = await response.json();
