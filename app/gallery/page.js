@@ -1,14 +1,15 @@
 import Card from "../component/Card";
 
-export const metadata = {
-  title: "Gallery",
-  description: "Gallery Page",
-};
+// export const metadata = {
+//   title: "Gallery",
+//   description: "Gallery Page",
+// };
 
 const getData = async () => {
   try {
     const response = await fetch(`${process.env.API_URL}/post`, {
       cache: "no-store",
+      fallback: false,
     });
 
     if (!response.ok) throw new Error("Failed to fetch data");
@@ -20,7 +21,7 @@ const getData = async () => {
   }
 };
 
-const page = async () => {
+const Page = async () => {
   const aiPosts = await getData();
   return (
     <section>
@@ -45,4 +46,4 @@ const page = async () => {
   );
 };
 
-export default page;
+export default Page;

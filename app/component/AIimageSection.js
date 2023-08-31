@@ -59,7 +59,7 @@ const AIimageSection = () => {
               </div>
               <div className="w-32 lg:w-40 h-48  overflow-hidden rounded-xl bshadow">
                 <img
-                  src={imgdata[2] && imgdata[2].photo}
+                  src={imgdata[1] && imgdata[1].photo}
                   alt="ai_img"
                   className="w-32 lg:w-40 h-48"
                 />
@@ -67,7 +67,7 @@ const AIimageSection = () => {
             </div>
             <div className="lg:w-68 w-64 h-96  overflow-hidden rounded-xl bshadow">
               <img
-                src={imgdata[1] && imgdata[1].photo}
+                src={imgdata[2] && imgdata[2].photo}
                 alt="ai_img"
                 className="lg:w-68 w-64 h-96"
               />
